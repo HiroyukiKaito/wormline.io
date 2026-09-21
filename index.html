@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORMLINE.IO // CYBERPUNK</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="scanlines"></div>
+
+<!-- ================= LOBBY ================= -->
+<div id="lobby" class="screen">
+  <div class="grid-bg"></div>
+  <div class="lobby-inner">
+    <h1 class="logo" data-text="WORMLINE.IO">WORMLINE.IO</h1>
+    <p class="tagline">// NEON SERPENT PROTOCOL v2.077 //</p>
+
+    <div class="panel">
+      <label class="lbl">IDENTITAS / NICKNAME</label>
+      <input id="nickname" maxlength="14" placeholder="NETRUNNER" value="">
+
+      <label class="lbl">PILIH SKIN CYBERPUNK</label>
+      <div id="skinList" class="skin-list"></div>
+
+      <div class="skin-preview-wrap">
+        <canvas id="skinPreview" width="520" height="90"></canvas>
+      </div>
+
+      <button id="playBtn" class="btn-play"><span>MASUK KE GRID</span></button>
+
+      <div class="controls-info">
+        <div><b>MOUSE</b> — ular mengikuti kursor</div>
+        <div><b>SPACE</b> — boost (efek The Flash)</div>
+        <div><b>ESC</b> — jeda / keluar</div>
+      </div>
+    </div>
+    <div class="footer-note">SYSTEM ONLINE · <span id="botCountLabel">24</span> AI ENTITIES DETECTED</div>
+  </div>
+</div>
+
+<!-- ================= GAME ================= -->
+<div id="game" class="screen hidden">
+  <canvas id="canvas"></canvas>
+
+  <div id="hud">
+    <div id="hudLeft">
+      <div class="stat"><span class="k">SCORE</span><span class="v" id="scoreVal">0</span></div>
+      <div class="stat"><span class="k">LENGTH</span><span class="v" id="lenVal">0</span></div>
+      <div class="stat"><span class="k">RANK</span><span class="v" id="rankVal">-</span></div>
+      <div class="boost-wrap"><div class="boost-bar" id="boostBar"></div></div>
+    </div>
+
+    <div id="hudRight">
+      <div class="mini-panel">
+        <div class="panel-title">TACTICAL MAP</div>
+        <canvas id="minimap" width="200" height="200"></canvas>
+      </div>
+      <div class="mini-panel">
+        <div class="panel-title">LEADERBOARD · TOP 10</div>
+        <ol id="leaderboard"></ol>
+      </div>
+    </div>
+  </div>
+
+  <div id="flashOverlay"></div>
+
+  <div id="deathScreen" class="hidden">
+    <div class="death-box">
+      <h2 class="glitch" data-text="CONNECTION LOST">CONNECTION LOST</h2>
+      <p id="deathStats"></p>
+      <button id="respawnBtn" class="btn-play"><span>RECONNECT</span></button>
+      <button id="lobbyBtn" class="btn-ghost">KEMBALI KE LOBBY</button>
+    </div>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
